@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -11,19 +12,19 @@ TagManager:
   - 
   - Water
   - UI
-  - Background 3
-  - Background 2
-  - Background 1
-  - Ground 3
-  - Ground 2
-  - Ground 1
-  - Player
-  - Foreground 3
-  - Foreground 2
-  - Foreground 1
-  - UI 3
-  - UI 2
-  - UI 1
+  - Ground
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -38,8 +39,23 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2467947543
+    locked: 0
+  - name: Pre-Default
+    uniqueID: 2317353445
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Post-Default
+    uniqueID: 613529661
+    locked: 0
+  - name: Foreground
+    uniqueID: 2357548807
+    locked: 0
+  - name: UI
+    uniqueID: 65607505
     locked: 0
   m_RenderingLayers:
   - Default
