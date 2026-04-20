@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -20,7 +21,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private PhysicsMaterial2D idleMaterial;
     [SerializeField] private PhysicsMaterial2D moveMaterial;
-    
+
     [SerializeField] private AudioClip[] marioJump;
     [SerializeField] private AudioClip marioDoubleJump;
     [SerializeField] private AudioClip[] marioTripleJump;
@@ -35,10 +36,12 @@ public class Player : MonoBehaviour
     private int _jumpStage = 0;
     private double timeOfLastJump;
     private bool isJumping;
+    private bool isDead;
 
 
     void Start()
     {
+        isDead = false;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
@@ -53,12 +56,13 @@ public class Player : MonoBehaviour
         animator.SetBool("IsGrounded", IsGrounded());
         animator.SetBool("IsSliding", _isSliding);
         animator.SetInteger("JumpStage", _jumpStage);
-        if (transform.position.y < Bounds.Instance.minY)
+        if ((transform.position.y < Bounds.Instance.minY || transform.position.x < Bounds.Instance.minX ||
+            transform.position.x > Bounds.Instance.maxX) && !isDead)
         {
-            Debug.Log("Game Over");
-            Scene currtScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currtScene.name);
+            isDead = true;
+            StartCoroutine(RestartLevel());
         }
+
         if (IsMoving() && !_isSliding)
         {
             rb.sharedMaterial = moveMaterial;
@@ -72,7 +76,7 @@ public class Player : MonoBehaviour
         {
             _isSliding = true;
         }
-        
+
         if (Time.time - timeOfLastJump > 1.2f)
         {
             _jumpStage = 0;
@@ -92,7 +96,7 @@ public class Player : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(_moveDirection * speed, rb.linearVelocity.y);
     }
-    
+
     private void Jump(InputAction.CallbackContext context)
     {
         if (!IsGrounded()) return;
@@ -165,8 +169,8 @@ public class Player : MonoBehaviour
         {
             timeOfLastJump = Time.time;
             isJumping = false;
-            
         }
+
         return isGrounded;
     }
 
@@ -176,5 +180,13 @@ public class Player : MonoBehaviour
         {
             transform.localScale = new Vector3(-transform.localScale.x, 0.09f, transform.localScale.z);
         }
+    }
+
+    IEnumerator RestartLevel()
+    {
+        AudioSource source = SFXManager.instance.PlaySFXClip(marioFalling, transform, 1);
+        yield return new WaitForSeconds(source.clip.length);
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 }

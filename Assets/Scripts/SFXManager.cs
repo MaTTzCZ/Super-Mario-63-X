@@ -14,14 +14,15 @@ public class SFXManager : MonoBehaviour
         }
     }
 
-    public void PlaySFXClip(AudioClip clip, Transform transform, float volume)
+    public AudioSource PlaySFXClip(AudioClip clip, Transform transform, float volume)
     {
         AudioSource audioSource = Instantiate(SFXObject, transform.position, Quaternion.identity);
         audioSource.clip = clip;
         audioSource.volume = volume;
         audioSource.Play();
-        float length = audioSource.clip.length;
-        Destroy(audioSource.gameObject, length);
+        Destroy(audioSource.gameObject, clip.length);
+        return audioSource;
+        
     }
     public void PlayRandomSFXClip(AudioClip[] clips, Transform transform, float volume)
     {

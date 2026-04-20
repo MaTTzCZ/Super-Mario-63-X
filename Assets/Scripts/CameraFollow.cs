@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    [SerializeField] private float minX, maxX, minY, maxY;
     [SerializeField] private Transform target;
     [SerializeField] private float smoothTime;
 
@@ -10,8 +11,7 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
-        if (target.position.x < Bounds.Instance.minX || target.position.x > Bounds.Instance.maxX ||
-            target.position.y < Bounds.Instance.minY || target.position.y > Bounds.Instance.maxY)
+        if (target.position.x < minX || target.position.x > maxX  || target.position.y < minY || target.position.y > maxY)
             return;
         var targetPos = target.position + _offset;
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref _velocity, smoothTime);
