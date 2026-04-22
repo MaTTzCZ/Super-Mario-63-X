@@ -184,6 +184,7 @@ public class Player : MonoBehaviour
 
     IEnumerator RestartLevel()
     {
+        MusicManager.Instance.StopMusic();
         AudioSource source = SFXManager.instance.PlaySFXClip(marioFalling, transform, 1);
         yield return new WaitForSeconds(source.clip.length);
         Scene currentScene = SceneManager.GetActiveScene();

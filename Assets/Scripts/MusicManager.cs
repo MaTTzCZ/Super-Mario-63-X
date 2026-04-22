@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-public class MusicPlayer : MonoBehaviour
+public class MusicManager : MonoBehaviour
 {
     [Range(0, 1)] [SerializeField] private float volume;
     [Range(0, 5)] [SerializeField] private float startTimeDelay;
@@ -10,7 +9,13 @@ public class MusicPlayer : MonoBehaviour
     [SerializeField] private AudioClip audioClipStart;
     [SerializeField] private AudioClip audioClipLoop;
     private double _startTime;
+    public static MusicManager Instance;
 
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
     private void Start()
     {
         audioSourceStart.clip = audioClipStart;
@@ -34,5 +39,11 @@ public class MusicPlayer : MonoBehaviour
     {
         audioSourceStart.volume = volume;
         audioSourceLoop.volume = volume;
+    }
+
+    public void StopMusic()
+    {
+        audioSourceStart.Stop();
+        audioSourceLoop.Stop();
     }
 }
