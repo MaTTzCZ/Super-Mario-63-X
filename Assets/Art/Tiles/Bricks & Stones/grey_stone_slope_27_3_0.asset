@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: grey_stone_slope_27_3_0
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
-  m_Sprite: {fileID: -8670649456112227216, guid: 0f9dc5ce7433df04ab2c97759dde4b98, type: 3}
+  m_Sprite: {fileID: -8670649456112227216, guid: 2d948f137585b8f45a3e355f2847f7e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

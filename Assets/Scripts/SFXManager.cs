@@ -24,6 +24,16 @@ public class SFXManager : MonoBehaviour
         return audioSource;
         
     }
+    public AudioSource PlayLoopingSFXClip(AudioClip clip, Transform transform, float volume)
+    {
+        AudioSource audioSource = Instantiate(SFXObject, transform.position, Quaternion.identity);
+        audioSource.clip = clip;
+        audioSource.volume = volume;
+        audioSource.loop = true;
+        audioSource.Play();
+        return audioSource;
+        
+    }
     public void PlayRandomSFXClip(AudioClip[] clips, Transform transform, float volume)
     {
         AudioSource audioSource = Instantiate(SFXObject, transform.position, Quaternion.identity);

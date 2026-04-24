@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mario_run_2_0
+      name: mario_run_1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 60
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 19ffeef5b8a838460800000000000000
-      internalID: 7242784956956475281
+      spriteID: 4a02d371ca68cfdd0800000000000000
+      internalID: 1968864568
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4971592e93fe6604d93f591953f6dcf8
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mario_run_2_0: 7242784956956475281
+      mario_run_1_0: 1968864568
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - Shine Sprite
   layers:
   - Default
   - TransparentFX
@@ -39,20 +40,26 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
+  - name: Background 3
     uniqueID: 2467947543
     locked: 0
-  - name: Pre-Default
+  - name: Background 2
+    uniqueID: 2874703039
+    locked: 0
+  - name: Background 1
     uniqueID: 2317353445
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Post-Default
+  - name: Foreground 1
+    uniqueID: 2357548807
+    locked: 0
+  - name: Foreground 2
     uniqueID: 613529661
     locked: 0
-  - name: Foreground
-    uniqueID: 2357548807
+  - name: Foreground 3
+    uniqueID: 3052113677
     locked: 0
   - name: UI
     uniqueID: 65607505

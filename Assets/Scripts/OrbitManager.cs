@@ -10,12 +10,15 @@ public class OrbitManager : MonoBehaviour
 
 
     private Transform center;
-    private GameObject[] platforms;
+    private Rigidbody2D[] rbs;
+    private bool hasFlippingPlatform;
 
     void Start()
     {
         center = transform;
-        platforms = new GameObject[count];
+        rbs = new Rigidbody2D[count];
+        if (flippingPlatform != null)
+            hasFlippingPlatform = true;
 
         for (int i = 0; i < count; i++)
         {
@@ -27,8 +30,7 @@ public class OrbitManager : MonoBehaviour
             );
 
             GameObject p = Instantiate(platformPrefab, center.position + (Vector3)pos, Quaternion.identity, transform);
-
-            platforms[i] = p;
+            rbs[i] = p.GetComponent<Rigidbody2D>();
         }
     }
 
@@ -43,13 +45,9 @@ public class OrbitManager : MonoBehaviour
                 Mathf.Cos(angle) * radius,
                 Mathf.Sin(angle) * radius
             );
-
-            Rigidbody2D rb = platforms[i].GetComponent<Rigidbody2D>();
-
-            rb.MovePosition((Vector2)center.position + pos);
-            
+            rbs[i].MovePosition((Vector2)center.position + pos);
         }
-        if (flippingPlatform != null)
+        if (hasFlippingPlatform)
             flippingPlatform.Rotate(0, 0, speed * Time.fixedDeltaTime);
     }
 }
