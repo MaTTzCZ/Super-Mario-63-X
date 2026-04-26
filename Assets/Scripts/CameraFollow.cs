@@ -6,14 +6,16 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private float smoothTime;
 
-    private readonly Vector3 _offset = new(0f, 0f, -10f);
-    private Vector3 _velocity = Vector3.zero;
+    private readonly Vector3 offset = new(0f, 0f, -10f);
+    private Vector3 velocity = Vector3.zero;
 
     private void Update()
     {
-        if (target.position.x < minX || target.position.x > maxX  || target.position.y < minY || target.position.y > maxY)
-            return;
-        var targetPos = target.position + _offset;
-        transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref _velocity, smoothTime);
+        var targetPos = target.position + offset;
+        targetPos.x = Mathf.Clamp(targetPos.x, minX, maxX);
+        targetPos.y = Mathf.Clamp(targetPos.y, minY, maxY);
+        var newX = Mathf.SmoothDamp(transform.position.x, targetPos.x, ref velocity.x, smoothTime);
+        var newY = Mathf.SmoothDamp(transform.position.y, targetPos.y, ref velocity.y, smoothTime);
+        transform.position = new Vector3(newX, newY, transform.position.z);
     }
 }

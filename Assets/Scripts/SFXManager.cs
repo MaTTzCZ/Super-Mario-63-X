@@ -43,16 +43,4 @@ public class SFXManager : MonoBehaviour
         float length = audioSource.clip.length;
         Destroy(audioSource.gameObject, length);
     }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

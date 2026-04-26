@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 3c274298f5f297e499b6efe35211a61c
+  - enabled: 1
+    path: Assets/Scenes/Game Over.unity
+    guid: 91b9279f86c101f45b7a9f1860e520c4
+  - enabled: 1
     path: Assets/Scenes/Bowser's Trap 1.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects:

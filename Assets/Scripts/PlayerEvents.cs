@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerEvents : MonoBehaviour
 {
@@ -28,16 +29,15 @@ public class PlayerEvents : MonoBehaviour
 
         var audioSource = playerSFX.PlayShineSpriteCollectedSound(1);
         yield return new WaitForSeconds(audioSource.clip.length);
-        LevelManager.Instance.RestartLevel();
-        
+        GameManager.Instance.PlayerDeath(SceneManager.GetActiveScene().name);
     }
     
     public IEnumerator PlayerOutOfBounds()
     {
-        PlayerDeath();
+        MusicManager.Instance.StopMusic();
         var audioSource = playerSFX.PlayFallingSound(1);
         yield return new WaitForSeconds(audioSource.clip.length);
-        LevelManager.Instance.RestartLevel();
+        GameManager.Instance.PlayerDeath(SceneManager.GetActiveScene().name);
 
     }
 
@@ -47,11 +47,5 @@ public class PlayerEvents : MonoBehaviour
         {
             StartCoroutine(ShineSpriteCollected());
         }
-    }
-
-    private void PlayerDeath()
-    {
-        MusicManager.Instance.StopMusic();
-        GameManager.Instance.playerLives--;
     }
 }

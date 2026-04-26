@@ -8,7 +8,7 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioSource audioSourceLoop;
     [SerializeField] private AudioClip audioClipStart;
     [SerializeField] private AudioClip audioClipLoop;
-    private double _startTime;
+    private double startTime;
     public static MusicManager Instance;
 
     private void Awake()
@@ -19,15 +19,15 @@ public class MusicManager : MonoBehaviour
     private void Start()
     {
         audioSourceStart.clip = audioClipStart;
-        _startTime = AudioSettings.dspTime + startTimeDelay;
+        startTime = AudioSettings.dspTime + startTimeDelay;
         var startClipDuration = (double)audioClipStart.samples / audioClipStart.frequency;
-        audioSourceStart.PlayScheduled(_startTime);
+        audioSourceStart.PlayScheduled(startTime);
         if (audioClipLoop != null)
         {
-            audioSourceStart.SetScheduledEndTime(_startTime + startClipDuration);
+            audioSourceStart.SetScheduledEndTime(startTime + startClipDuration);
             audioSourceLoop.clip = audioClipLoop;
             audioSourceLoop.loop = true;
-            audioSourceLoop.PlayScheduled(_startTime + startClipDuration);
+            audioSourceLoop.PlayScheduled(startTime + startClipDuration);
         }
         else
         {

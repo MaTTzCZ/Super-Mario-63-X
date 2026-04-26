@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private int jumpStage;
     private double lastJumpTime;
     private bool isDead;
+    private bool canFallOutOfBounds; 
 
     [Header("Input Action References")] 
     [SerializeField] private InputActionReference moveActionReference;
@@ -45,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         playerSFX = GetComponent<PlayerSFX>();
         playerEvents = GetComponent<PlayerEvents>();
         isDead = false;
+        canFallOutOfBounds = Bounds.Instance != null;
     }
 
     private void Update()
@@ -53,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat(HorizontalSpeed, Mathf.Abs(moveDirection));
         animator.SetFloat(VerticalSpeed, rb.linearVelocity.y);
         animator.SetBool(Grounded, IsGrounded());
-        if (!IsOutOfBounds() || isDead) return;
+        if (!canFallOutOfBounds || !IsOutOfBounds() || isDead) return;
         isDead = true;
         StartCoroutine(playerEvents.PlayerOutOfBounds());
     }
@@ -117,6 +119,12 @@ public class PlayerMovement : MonoBehaviour
     {
         moveActionReference.action.Disable();
         jumpActionReference.action.Disable();
+    }
+
+    public void EnableMovement()
+    {
+        moveActionReference.action.Enable();
+        jumpActionReference.action.Enable();
     }
 
     private void OnEnable()
