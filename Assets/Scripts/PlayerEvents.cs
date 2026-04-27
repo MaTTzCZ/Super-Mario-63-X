@@ -28,8 +28,8 @@ public class PlayerEvents : MonoBehaviour
         } while (!playerMovement.IsGrounded());
 
         var audioSource = playerSFX.PlayShineSpriteCollectedSound(1);
-        yield return new WaitForSeconds(audioSource.clip.length);
-        GameManager.Instance.PlayerDeath(SceneManager.GetActiveScene().name);
+        yield return new WaitForSeconds(audioSource.clip.length + 1);
+        GameManager.Instance.ReturnToMenu();
     }
     
     public IEnumerator PlayerOutOfBounds()

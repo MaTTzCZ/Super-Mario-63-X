@@ -25,6 +25,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+
+    }
 
     public void PlayerDeath(string sceneName)
     {

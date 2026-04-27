@@ -10325,6 +10325,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 2154318787180810667, guid: bd0db707f31595544850c3b485afdf07, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2247738596347356290, guid: bd0db707f31595544850c3b485afdf07, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -10365,6 +10369,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2286384332390711146, guid: bd0db707f31595544850c3b485afdf07, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403181443758306786, guid: bd0db707f31595544850c3b485afdf07, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403181443758306786, guid: bd0db707f31595544850c3b485afdf07, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403181443758306786, guid: bd0db707f31595544850c3b485afdf07, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403181443758306786, guid: bd0db707f31595544850c3b485afdf07, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403181443758306786, guid: bd0db707f31595544850c3b485afdf07, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403181443758306786, guid: bd0db707f31595544850c3b485afdf07, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
     - target: {fileID: 7422318998806493663, guid: bd0db707f31595544850c3b485afdf07, type: 3}
       propertyPath: orthographic size
       value: 6
@@ -10373,6 +10405,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1214323580}
+    - target: {fileID: 9015974011476419185, guid: bd0db707f31595544850c3b485afdf07, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015974011476419185, guid: bd0db707f31595544850c3b485afdf07, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
