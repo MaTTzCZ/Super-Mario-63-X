@@ -11,9 +11,9 @@ public class TiltingPlatform : MonoBehaviour
     {
         if (_isPlayerOnPlatform)
         {
-            float direction = player.position.x - transform.position.x;
-            float targetAngle = Mathf.Clamp(direction * maxAngle, -maxAngle, maxAngle);
-            Quaternion targetRotation = Quaternion.Euler(0, 0, -targetAngle);
+            var direction = player.position.x - transform.position.x;
+            var targetAngle = Mathf.Clamp(direction * maxAngle, -maxAngle, maxAngle);
+            var targetRotation = Quaternion.Euler(0, 0, -targetAngle);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
         else

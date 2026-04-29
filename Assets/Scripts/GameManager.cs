@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private MenuManager menuManager;
     [SerializeReference] private InputActionReference pauseActionReference;
     public static GameManager Instance;
     public int playerLives = 5;
-    public int shineSpriteCount = 0;
+    public int shineSpriteCount;
 
     private readonly List<int> shineSpriteIDs = new();
 
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void GameOver()
+    private void GameOver()
     {
         shineSpriteCount = 0;
         SceneManager.LoadScene("Game Over");
@@ -72,6 +73,6 @@ public class GameManager : MonoBehaviour
 
     private void Pause(InputAction.CallbackContext obj)
     { 
-        MenuManager.Instance.ToggleMenu();
+        menuManager.ToggleMenu();
     }
 }

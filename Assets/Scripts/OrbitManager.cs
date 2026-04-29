@@ -20,28 +20,28 @@ public class OrbitManager : MonoBehaviour
         if (flippingPlatform != null)
             hasFlippingPlatform = true;
 
-        for (int i = 0; i < count; i++)
+        for (var i = 0; i < count; i++)
         {
-            float angle = i * Mathf.PI * 2f / count;
+            var angle = i * Mathf.PI * 2f / count;
 
-            Vector2 pos = new Vector2(
+            var pos = new Vector2(
                 Mathf.Cos(angle) * radius,
                 Mathf.Sin(angle) * radius
             );
 
-            GameObject p = Instantiate(platformPrefab, center.position + (Vector3)pos, Quaternion.identity, transform);
+            var p = Instantiate(platformPrefab, center.position + (Vector3)pos, Quaternion.identity, transform);
             rbs[i] = p.GetComponent<Rigidbody2D>();
         }
     }
 
     void FixedUpdate()
     {
-        for (int i = 0; i < count; i++)
+        for (var i = 0; i < count; i++)
         {
-            float baseAngle = i * Mathf.PI * 2f / count;
-            float angle = baseAngle + Time.time * speed * Mathf.Deg2Rad;
+            var baseAngle = i * Mathf.PI * 2f / count;
+            var angle = baseAngle + Time.time * speed * Mathf.Deg2Rad;
 
-            Vector2 pos = new Vector2(
+            var pos = new Vector2(
                 Mathf.Cos(angle) * radius,
                 Mathf.Sin(angle) * radius
             );

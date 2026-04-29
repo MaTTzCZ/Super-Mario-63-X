@@ -31,7 +31,7 @@ public class ShineSprite : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.CollectShineSprite(id);
-            SFXManager.instance.PlaySFXClip(shineSpriteSparkle, other.transform, 1);
+            SFXManager.Instance.PlaySFXClip(shineSpriteSparkle, other.transform);
             Destroy(gameObject);
         }
     }

@@ -61,9 +61,6 @@ public class Thwomp : MonoBehaviour
 
     private void CheckForPlayer()
     {
-        if (player == null) return;
-
-        // Je hráč pod nepřítelem?
         if (Mathf.Abs(player.position.x - transform.position.x) < detectionWidth &&
             player.position.y < transform.position.y &&
             player.position.y > transform.position.y - detectionHeight)
@@ -100,8 +97,8 @@ public class Thwomp : MonoBehaviour
             {
                 isFalling = false;
                 rb.linearVelocity = Vector2.zero;
-                if (SFXManager.instance != null)
-                    SFXManager.instance.PlaySFXClip(slamSound, transform, 1);
+                if (SFXManager.Instance != null)
+                    SFXManager.Instance.PlaySFXClip(slamSound, transform);
                 Invoke(nameof(StartReturn), waitTime);
             } 
         }

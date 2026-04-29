@@ -78,12 +78,12 @@ public class PlayerMovement : MonoBehaviour
         var currentJumpForce = jumpForce;
         if (jumpStage == 0)
         {
-            playerSFX.PlayJumpSound(1);
+            playerSFX.PlayJumpSound();
             jumpStage++;
         }
         else if (jumpStage == 1)
         {
-            playerSFX.PlayDoubleJumpSound(1);
+            playerSFX.PlayDoubleJumpSound();
             currentJumpForce = doubleJumpForce;
             jumpStage++;
         }
@@ -91,12 +91,12 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!IsMoving())
             {
-                playerSFX.PlayDoubleJumpSound(1);
+                playerSFX.PlayDoubleJumpSound();
                 currentJumpForce = doubleJumpForce;
             }
             else
             {
-                playerSFX.PlayTripleJumpSound(1);
+                playerSFX.PlayTripleJumpSound();
                 currentJumpForce = tripleJumpForce;
                 jumpStage = 0;
             }

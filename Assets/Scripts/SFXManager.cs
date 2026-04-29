@@ -1,46 +1,50 @@
-using System;
 using UnityEngine;
 
 public class SFXManager : MonoBehaviour
 {
-    public static SFXManager instance;
+    public static SFXManager Instance;
     [SerializeField] private AudioSource SFXObject;
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
-    public AudioSource PlaySFXClip(AudioClip clip, Transform transform, float volume)
+    public AudioSource PlaySFXClip(AudioClip clip, Transform transform)
     {
-        AudioSource audioSource = Instantiate(SFXObject, transform.position, Quaternion.identity);
+        var audioSource = Instantiate(SFXObject, transform.position, Quaternion.identity);
         audioSource.clip = clip;
-        audioSource.volume = volume;
+        audioSource.volume = 1;
         audioSource.Play();
         Destroy(audioSource.gameObject, clip.length);
         return audioSource;
-        
     }
-    public AudioSource PlayLoopingSFXClip(AudioClip clip, Transform transform, float volume)
+
+    public AudioSource PlayLoopingSFXClip(AudioClip clip, Transform transform)
     {
-        AudioSource audioSource = Instantiate(SFXObject, transform.position, Quaternion.identity);
+        var audioSource = Instantiate(SFXObject, transform.position, Quaternion.identity);
         audioSource.clip = clip;
-        audioSource.volume = volume;
+        audioSource.volume = 1;
         audioSource.loop = true;
         audioSource.Play();
         return audioSource;
-        
     }
-    public void PlayRandomSFXClip(AudioClip[] clips, Transform transform, float volume)
+
+    public void PlayRandomSFXClip(AudioClip[] clips, Transform transform)
     {
-        AudioSource audioSource = Instantiate(SFXObject, transform.position, Quaternion.identity);
+        var audioSource = Instantiate(SFXObject, transform.position, Quaternion.identity);
         audioSource.clip = clips[UnityEngine.Random.Range(0, clips.Length)];
-        audioSource.volume = volume;
+        audioSource.volume = 1;
         audioSource.Play();
-        float length = audioSource.clip.length;
+        var length = audioSource.clip.length;
         Destroy(audioSource.gameObject, length);
     }
 }

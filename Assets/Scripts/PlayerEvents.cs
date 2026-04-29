@@ -19,23 +19,30 @@ public class PlayerEvents : MonoBehaviour
 
     private IEnumerator ShineSpriteCollected()
     {
+        LevelUIManager.Instance.UpdateUI();
         animator.SetBool(SpriteCollected, true);
-        MusicManager.Instance.StopMusic();
+        MusicManager.Instance.Stop();
         playerMovement.DisableMovement();
         do
         {
            yield return null; 
         } while (!playerMovement.IsGrounded());
 
-        var audioSource = playerSFX.PlayShineSpriteCollectedSound(1);
+        var audioSource = playerSFX.PlayShineSpriteCollectedSound();
         yield return new WaitForSeconds(audioSource.clip.length + 1);
         GameManager.Instance.ReturnToMenu();
+    }
+
+    private void OneUpMushroomCollected()
+    {
+        GameManager.Instance.playerLives++;
+        LevelUIManager.Instance.UpdateUI();
     }
     
     public IEnumerator PlayerOutOfBounds()
     {
-        MusicManager.Instance.StopMusic();
-        var audioSource = playerSFX.PlayFallingSound(1);
+        MusicManager.Instance.Stop();
+        var audioSource = playerSFX.PlayFallingSound();
         yield return new WaitForSeconds(audioSource.clip.length);
         GameManager.Instance.PlayerDeath(SceneManager.GetActiveScene().name);
 
@@ -46,6 +53,10 @@ public class PlayerEvents : MonoBehaviour
         if (other.CompareTag("Shine Sprite"))
         {
             StartCoroutine(ShineSpriteCollected());
+        }
+        else if (other.CompareTag("1 Up Mushroom"))
+        {
+            OneUpMushroomCollected();
         }
     }
 }

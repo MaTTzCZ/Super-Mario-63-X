@@ -20,7 +20,7 @@ public class MovingObstacle : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
 
         _waypoints = new Transform[waypointsList.transform.childCount];
-        for (int i = 0; i < waypointsList.transform.childCount; i++)
+        for (var i = 0; i < waypointsList.transform.childCount; i++)
         {
             _waypoints[i] = waypointsList.transform.GetChild(i);
         }
@@ -33,9 +33,9 @@ public class MovingObstacle : MonoBehaviour
         if (_isWaiting) 
             return;
 
-        float step = speed * Time.fixedDeltaTime;
+        var step = speed * Time.fixedDeltaTime;
 
-        Vector3 newPosition = Vector3.MoveTowards(
+        var newPosition = Vector3.MoveTowards(
             _rb.position,
             _targetPosition.position,
             step

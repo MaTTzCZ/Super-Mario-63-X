@@ -12,7 +12,7 @@ public class GameOverManager : MonoBehaviour
 
     private IEnumerator GameOverCoroutine()
     {
-        var audioSource = SFXManager.instance.PlaySFXClip(gameOverSound, transform, 1);
+        var audioSource = SFXManager.Instance.PlaySFXClip(gameOverSound, transform);
         yield return new WaitForSeconds(audioSource.clip.length + 1);
         SceneManager.LoadScene("Main Menu");
     }

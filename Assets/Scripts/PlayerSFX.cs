@@ -10,25 +10,25 @@ public class PlayerSFX : MonoBehaviour
     [Header("Collectibles")]
     [SerializeField] private AudioClip shineSpriteCollectedSound;
 
-    public void PlayJumpSound(float volume)
+    public void PlayJumpSound()
     {
-        SFXManager.instance.PlayRandomSFXClip(jumpSounds, transform, volume);
+        SFXManager.Instance.PlayRandomSFXClip(jumpSounds, transform);
     }
-    public void PlayDoubleJumpSound(float volume)
+    public void PlayDoubleJumpSound()
     {
-        SFXManager.instance.PlaySFXClip(doubleJumpSound, transform, volume);
+        SFXManager.Instance.PlaySFXClip(doubleJumpSound, transform);
     }
-    public void PlayTripleJumpSound(float volume)
+    public void PlayTripleJumpSound()
     {
-        SFXManager.instance.PlayRandomSFXClip(tripleJumpSounds, transform, volume);
+        SFXManager.Instance.PlayRandomSFXClip(tripleJumpSounds, transform);
     }
-    public AudioSource PlayFallingSound(float volume)
+    public AudioSource PlayFallingSound()
     {
-        return SFXManager.instance.PlaySFXClip(fallingSound, transform, volume);
+        return SFXManager.Instance.PlaySFXClip(fallingSound, transform);
     }
 
-    public AudioSource PlayShineSpriteCollectedSound(float volume)
+    public AudioSource PlayShineSpriteCollectedSound()
     {
-        return SFXManager.instance.PlaySFXClip(shineSpriteCollectedSound, transform, volume);
+        return SFXManager.Instance.PlaySFXClip(shineSpriteCollectedSound, transform);
     }
 }
