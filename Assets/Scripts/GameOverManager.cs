@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
+    [SerializeField] private SFXManager SFXManager;
     [SerializeField] private AudioClip gameOverSound;
     private void Start()
     {
@@ -12,7 +13,8 @@ public class GameOverManager : MonoBehaviour
 
     private IEnumerator GameOverCoroutine()
     {
-        var audioSource = SFXManager.Instance.PlaySFXClip(gameOverSound, transform);
+        yield return new WaitForSeconds(0.2f);
+        var audioSource = SFXManager.PlaySFXClip(gameOverSound, transform);
         yield return new WaitForSeconds(audioSource.clip.length + 1);
         SceneManager.LoadScene("Main Menu");
     }

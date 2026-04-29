@@ -6,24 +6,28 @@ using UnityEngine.SceneManagement;
 public class PauseMenuManager : MonoBehaviour
 {
     [SerializeField] private InputActionReference pauseGameInputActionReference;
-    public static PauseMenuManager Instance;
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private GameObject menu;
 
     private void OnEnable()
     {
-        pauseGameInputActionReference.action.started = Toggle;
+        pauseGameInputActionReference.action.started += Toggle;
+    }
+
+    private void OnDisable()
+    {
+        pauseGameInputActionReference.action.started -= Toggle;
+    }
+
+    private void Toggle(InputAction.CallbackContext obj)
+    {
+        var isActive = menu.activeSelf;
+        menu.SetActive(!isActive);
+        Time.timeScale = isActive ? 1 : 0;
+        if (isActive)
+            playerMovement.EnableMovement();
+        else
+            playerMovement.DisableMovement();
     }
 
     public void ReturnToMenu()
@@ -34,6 +38,6 @@ public class PauseMenuManager : MonoBehaviour
     public void SwitchLevel(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
-        Time.timeScale = 0;
+        Time.timeScale = 1;
     }
 }

@@ -2,21 +2,8 @@ using UnityEngine;
 
 public class SFXManager : MonoBehaviour
 {
-    public static SFXManager Instance;
     [SerializeField] private AudioSource SFXObject;
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    
 
     public AudioSource PlaySFXClip(AudioClip clip, Transform transform)
     {

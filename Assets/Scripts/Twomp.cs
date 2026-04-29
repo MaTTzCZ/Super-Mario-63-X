@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Thwomp : MonoBehaviour
 {
+    [SerializeField] private SFXManager SFXManager;
     [Header("Detection")]
     [SerializeField] private Transform player;
     [SerializeField] private float detectionWidth = 2f;
@@ -97,8 +98,8 @@ public class Thwomp : MonoBehaviour
             {
                 isFalling = false;
                 rb.linearVelocity = Vector2.zero;
-                if (SFXManager.Instance != null)
-                    SFXManager.Instance.PlaySFXClip(slamSound, transform);
+                if (SFXManager != null)
+                    SFXManager.PlaySFXClip(slamSound, transform);
                 Invoke(nameof(StartReturn), waitTime);
             } 
         }

@@ -3,17 +3,8 @@ using UnityEngine;
 
 public class LevelUIManager : MonoBehaviour
 {
-    public static LevelUIManager Instance;
-
     [SerializeField] private TMP_Text shineSprites;
     [SerializeField] private TMP_Text playerLives;
-
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else Destroy(this);
-    }
 
     public void UpdateUI()
     {

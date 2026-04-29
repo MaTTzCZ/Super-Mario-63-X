@@ -1,9 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AdaptivePerformance;
 using UnityEngine.SceneManagement;
 
 public class PlayerEvents : MonoBehaviour
 {
+    [SerializeField] private MusicManager musicManager;
+    [SerializeField] private LevelUIManager levelUIManager;
     private static readonly int SpriteCollected = Animator.StringToHash("ShineSpriteCollected");
     
     private Animator animator;
@@ -19,9 +22,9 @@ public class PlayerEvents : MonoBehaviour
 
     private IEnumerator ShineSpriteCollected()
     {
-        LevelUIManager.Instance.UpdateUI();
+        levelUIManager.UpdateUI();
         animator.SetBool(SpriteCollected, true);
-        MusicManager.Instance.Stop();
+        musicManager.Stop();
         playerMovement.DisableMovement();
         do
         {
@@ -36,12 +39,12 @@ public class PlayerEvents : MonoBehaviour
     private void OneUpMushroomCollected()
     {
         GameManager.Instance.playerLives++;
-        LevelUIManager.Instance.UpdateUI();
+        levelUIManager.UpdateUI();
     }
     
     public IEnumerator PlayerOutOfBounds()
     {
-        MusicManager.Instance.Stop();
+        musicManager.Stop();
         var audioSource = playerSFX.PlayFallingSound();
         yield return new WaitForSeconds(audioSource.clip.length);
         GameManager.Instance.PlayerDeath(SceneManager.GetActiveScene().name);

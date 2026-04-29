@@ -5,26 +5,14 @@ public class MusicManager : MonoBehaviour
     [Range(0, 5)] [SerializeField] private float startTimeDelay;
     [SerializeField] private AudioSource audioSourceStart;
     [SerializeField] private AudioSource audioSourceLoop;
+    [SerializeField] private AudioClip audioClipStart;
+    [SerializeField] private AudioClip audioClipLoop;
     
     
     private double startTime;
+    
 
-    public static MusicManager Instance;
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    public void Play(AudioClip audioClipStart, AudioClip audioClipLoop)
+    public void Start()
     {
         audioSourceStart.clip = audioClipStart;
         startTime = AudioSettings.dspTime + startTimeDelay;

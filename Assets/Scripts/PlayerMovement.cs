@@ -39,6 +39,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PhysicsMaterial2D idleMaterial;
     [SerializeField] private PhysicsMaterial2D moveMaterial;
 
+    [Header("Other")] 
+    [SerializeField] private Bounds bounds;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -46,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         playerSFX = GetComponent<PlayerSFX>();
         playerEvents = GetComponent<PlayerEvents>();
         isDead = false;
-        canFallOutOfBounds = Bounds.Instance != null;
+        canFallOutOfBounds = bounds != null;
     }
 
     private void Update()
@@ -144,9 +147,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsOutOfBounds()
     {
-        return Bounds.Instance.minX > transform.position.x || 
-               Bounds.Instance.maxX < transform.position.x || 
-               Bounds.Instance.minY > transform.position.y;
+        return bounds.minX > transform.position.x || 
+               bounds.maxX < transform.position.x || 
+               bounds.minY > transform.position.y;
 
     }
     

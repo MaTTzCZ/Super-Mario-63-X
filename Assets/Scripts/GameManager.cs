@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private MenuManager menuManager;
-    [SerializeReference] private InputActionReference pauseActionReference;
     public static GameManager Instance;
     public int playerLives = 5;
     public int shineSpriteCount;
@@ -59,20 +57,5 @@ public class GameManager : MonoBehaviour
     public bool IsShineSpriteCollected(int shineSpriteID)
     {
         return shineSpriteIDs.Contains(shineSpriteID);
-    }
-
-    private void OnEnable()
-    {
-        pauseActionReference.action.started += Pause;
-    }
-
-    private void OnDisable()
-    {
-        pauseActionReference.action.started -= Pause;
-    }
-
-    private void Pause(InputAction.CallbackContext obj)
-    { 
-        menuManager.ToggleMenu();
     }
 }

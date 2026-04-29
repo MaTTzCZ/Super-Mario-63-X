@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerSFX : MonoBehaviour
 {
+    [SerializeField] private SFXManager  SFXManager;
     [Header("Movement")] 
     [SerializeField] private AudioClip[] jumpSounds;
     [SerializeField] private AudioClip doubleJumpSound;
@@ -12,23 +13,23 @@ public class PlayerSFX : MonoBehaviour
 
     public void PlayJumpSound()
     {
-        SFXManager.Instance.PlayRandomSFXClip(jumpSounds, transform);
+        SFXManager.PlayRandomSFXClip(jumpSounds, transform);
     }
     public void PlayDoubleJumpSound()
     {
-        SFXManager.Instance.PlaySFXClip(doubleJumpSound, transform);
+        SFXManager.PlaySFXClip(doubleJumpSound, transform);
     }
     public void PlayTripleJumpSound()
     {
-        SFXManager.Instance.PlayRandomSFXClip(tripleJumpSounds, transform);
+        SFXManager.PlayRandomSFXClip(tripleJumpSounds, transform);
     }
     public AudioSource PlayFallingSound()
     {
-        return SFXManager.Instance.PlaySFXClip(fallingSound, transform);
+        return SFXManager.PlaySFXClip(fallingSound, transform);
     }
 
     public AudioSource PlayShineSpriteCollectedSound()
     {
-        return SFXManager.Instance.PlaySFXClip(shineSpriteCollectedSound, transform);
+        return SFXManager.PlaySFXClip(shineSpriteCollectedSound, transform);
     }
 }

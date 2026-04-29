@@ -5,6 +5,7 @@ public class ShineSprite : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     public int id;
+    [SerializeField] private SFXManager SFXManager;
     [SerializeField] private Light2D light2D;
     [SerializeField] private Sprite yellowShineSprite;
     [SerializeField] private Sprite blueShineSprite;
@@ -31,7 +32,7 @@ public class ShineSprite : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.CollectShineSprite(id);
-            SFXManager.Instance.PlaySFXClip(shineSpriteSparkle, other.transform);
+            SFXManager.PlaySFXClip(shineSpriteSparkle, other.transform);
             Destroy(gameObject);
         }
     }
