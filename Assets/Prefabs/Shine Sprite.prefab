@@ -168,7 +168,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -8930627353341011161, guid: 62bc37b009f144549a12b5e9910d096e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -176,7 +176,7 @@ SpriteRenderer:
   m_Size: {x: 0.84375, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!61 &434415248407375338
 BoxCollider2D:
@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   id: 1
+  SFXManager: {fileID: 0}
   light2D: {fileID: 2600432380270718057}
   yellowShineSprite: {fileID: 3515590394330719733, guid: 0f4d60bc9359d5b498f56985c0df43c8, type: 3}
   blueShineSprite: {fileID: -8930627353341011161, guid: 62bc37b009f144549a12b5e9910d096e, type: 3}

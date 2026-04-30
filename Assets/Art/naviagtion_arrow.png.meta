@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a560d6c4e5c5dd44ba971ea12e13598a
+guid: 06d94f1aa02c9854da2f04d1da3f9299
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4600268567384723122
-    second: secret_of_the_mushroom_background_0
+      213: 6972613187462243927
+    second: naviagtion_arrow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: secret_of_the_mushroom_background_0
+      name: naviagtion_arrow_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1920
-        height: 1080
+        width: 32
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2be8c5683ef67df30800000000000000
-      internalID: 4600268567384723122
+      spriteID: 75624e260c2b3c060800000000000000
+      internalID: 6972613187462243927
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      secret_of_the_mushroom_background_0: 4600268567384723122
+      naviagtion_arrow_0: 6972613187462243927
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a560d6c4e5c5dd44ba971ea12e13598a
+guid: f632387ebe75a764daf3c3d8f04aa961
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4600268567384723122
-    second: secret_of_the_mushroom_background_0
+      213: -1868498543476354170
+    second: trihexagonal_tile_square_2x2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: secret_of_the_mushroom_background_0
+      name: trihexagonal_tile_square_2x2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1920
-        height: 1080
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2be8c5683ef67df30800000000000000
-      internalID: 4600268567384723122
+      spriteID: 683d1c47972c116e0800000000000000
+      internalID: -1868498543476354170
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      secret_of_the_mushroom_background_0: 4600268567384723122
+      trihexagonal_tile_square_2x2_0: -1868498543476354170
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

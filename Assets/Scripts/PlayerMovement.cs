@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        EnableMovement();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerSFX = GetComponent<PlayerSFX>();

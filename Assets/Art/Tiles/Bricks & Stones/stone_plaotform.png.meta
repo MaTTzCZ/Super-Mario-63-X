@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: a560d6c4e5c5dd44ba971ea12e13598a
+guid: cd2c60db1ebc6d94bb15dd60abd2c115
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4600268567384723122
-    second: secret_of_the_mushroom_background_0
+      213: -8504151022154949839
+    second: stone_plaotform_0
+  - first:
+      213: -5738120653442080105
+    second: stone_plaotform_1
+  - first:
+      213: 2723328593927200887
+    second: stone_plaotform_2
+  - first:
+      213: -7976060602442855925
+    second: stone_plaotform_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +109,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: secret_of_the_mushroom_background_0
+      name: stone_plaotform_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1920
-        height: 1080
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2be8c5683ef67df30800000000000000
-      internalID: 4600268567384723122
+      spriteID: b0ac76c14275f4190800000000000000
+      internalID: -7976060602442855925
       vertices: []
       indices: 
       edges: []
@@ -125,7 +134,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 37bce428c9c1bde48a04918e6a03fc19
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +144,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      secret_of_the_mushroom_background_0: 4600268567384723122
+      stone_plaotform_0: -8504151022154949839
+      stone_plaotform_1: -5738120653442080105
+      stone_plaotform_2: 2723328593927200887
+      stone_plaotform_3: -7976060602442855925
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

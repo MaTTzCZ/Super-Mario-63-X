@@ -37,7 +37,6 @@ public class PauseMenuManager : MonoBehaviour
 
     public void SwitchLevel(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
-        Time.timeScale = 1;
+        GameManager.Instance.SwitchLevel(sceneName);
     }
 }

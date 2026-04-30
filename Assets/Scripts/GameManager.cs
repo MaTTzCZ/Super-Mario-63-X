@@ -24,6 +24,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void SwitchLevel(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1;
+    }
     
     public void ReturnToMenu()
     {
@@ -45,6 +51,7 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         shineSpriteCount = 0;
+        playerLives = 5;
         SceneManager.LoadScene("Game Over");
     }
     

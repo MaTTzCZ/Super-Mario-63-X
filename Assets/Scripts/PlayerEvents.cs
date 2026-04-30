@@ -45,6 +45,7 @@ public class PlayerEvents : MonoBehaviour
     public IEnumerator PlayerOutOfBounds()
     {
         musicManager.Stop();
+        playerMovement.DisableMovement();
         var audioSource = playerSFX.PlayFallingSound();
         yield return new WaitForSeconds(audioSource.clip.length);
         GameManager.Instance.PlayerDeath(SceneManager.GetActiveScene().name);
